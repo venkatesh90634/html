@@ -9,10 +9,14 @@ body {  font-family:Monospace;
 * {
   box-sizing: border-box;
 }
+  nav {
+    margin:50px;
+}
 
 .nav {
   overflow: hidden;
   background-color: whitesmoke;
+  
 }
 
 .nav a {
@@ -60,16 +64,50 @@ body {  font-family:Monospace;
   color: black; 
 }
 </style>
-</head>
+<script>
+  /*
+
+    We are using the following attributes on anchors in order to collapse the responsive menu when an item is clicked:
+    
+        data-toggle="collapse"
+        data-target=".in"
+
+*/
+$(document).ready(function () {
+    $("nav").find("li").on("click", "a", function () {
+        $('.navbar-collapse.in').collapse('hide');
+    });
+});
+  </script>
+  </head>
 <body>
  <div class="nav">
-  <div class="img">
-  <h1 style="font-family: cursive;" align="">SNAZZY SNAPS</h1>
-  <a href="#CONTACT ME">CONTACT ME</a>
-  <a href="#WEDDINGS | PORTRAITS">WEDDINGS | PORTRAITS</a>
-  <a href="#ABOUT ME">ABOUT ME</a>
-  <a href="#HOME">HOME</a>
-</div>
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"> <span class="sr-only">Toggle navigation</span>
+ <span class="icon-bar"></span>
+ <span class="icon-bar"></span>
+ <span class="icon-bar"></span>
+
+            </button> <a class="navbar-brand">Brand</a>
+
+        </div>
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                <li class="active"><a data-toggle="collapse" data-target=".in" href="#sectionA">Page1</a>
+
+                </li>
+                <li><a data-toggle="collapse" data-target=".in" href="#sectionB">Page2 (with data-toggle attribute)</a>
+
+                </li>
+                <li><a href="#sectionC">Page3 (without data attributes, just jQuery)</a>
+
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
 </br>
 <div class="bg-img">
   <div class="container">
